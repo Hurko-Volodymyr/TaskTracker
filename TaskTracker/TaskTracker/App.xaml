@@ -1,7 +1,7 @@
-﻿<Application x:Class="TackTracker.App"
+﻿<Application x:Class="TaskTracker.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TackTracker"
+             xmlns:local="clr-namespace:TaskTracker"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
