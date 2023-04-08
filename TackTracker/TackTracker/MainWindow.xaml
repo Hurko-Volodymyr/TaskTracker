@@ -1,0 +1,44 @@
+﻿<Window x:Class="TackTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TackTracker"
+        mc:Ignorable="d"
+        Title="TaskTracker" Height="476" Width="481" BorderBrush="Black">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF4B1FAD"/>
+                <GradientStop Color="#FF2964D8" Offset="1"/>
+                <GradientStop Color="#FF0E224A" Offset="0.343"/>
+                <GradientStop Color="#FF163676" Offset="0.552"/>
+                <GradientStop Color="#FF204EAA" Offset="0.791"/>
+                <GradientStop Color="#FF255BC6" Offset="0.922"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ToDoListBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="12,8,12,8" Background="#FFD8ECF1" BorderBrush="#FF0D47F7"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="AddButton" Content="Add" Margin="12,0,8,12" Padding="8,1,8,1"/>
+            <Button x:Name="DoneButton" Content="Done" Background="#FFB1E2A7" Margin="0,0,8,12" Padding="8,1,8,1"/>
+            <Button x:Name="DeleteButton" Content="Delete" Background="#FFFDC4C4" Margin="0,0,0,12" Padding="8,1,8,1" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+            <RadioButton x:Name="AllRadioButton" Content="All" d:LayoutOverrides="Width, Height" Margin="12,12,8,0"/>
+            <RadioButton x:Name="UncompletedRadioButton" Content="Current" d:LayoutOverrides="Width, Height" Margin="0,12,8,0"/>
+            <RadioButton x:Name="CompletedRadioButton" Content="Completed" d:LayoutOverrides="Width, Height" Margin="0,12,0,0"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
