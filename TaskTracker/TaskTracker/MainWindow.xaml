@@ -30,14 +30,14 @@
         </Grid.RowDefinitions>
         <ListBox x:Name="ToDoListBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="12,8,12,8" Background="#FFD8ECF1" BorderBrush="#FF0D47F7"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button x:Name="AddButton" Content="Add" Margin="12,0,8,12" Padding="8,1,8,1"/>
-            <Button x:Name="DoneButton" Content="Done" Background="#FFB1E2A7" Margin="0,0,8,12" Padding="8,1,8,1"/>
-            <Button x:Name="DeleteButton" Content="Delete" Background="#FFFDC4C4" Margin="0,0,0,12" Padding="8,1,8,1" />
+            <Button x:Name="AddButton" Content="Add" Margin="12,0,8,12" Padding="8,1,8,1" Click="AddButton_Click"/>
+            <Button x:Name="DoneButton" Content="Done" Background="#FFB1E2A7" Margin="0,0,8,12" Padding="8,1,8,1" Click="DoneButton_Click"/>
+            <Button x:Name="DeleteButton" Content="Delete" Background="#FFFDC4C4" Margin="0,0,0,12" Padding="8,1,8,1" Click="DeleteButton_Click" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
-            <RadioButton x:Name="AllRadioButton" Content="All" d:LayoutOverrides="Width, Height" Margin="12,12,8,0"/>
-            <RadioButton x:Name="UncompletedRadioButton" Content="Current" d:LayoutOverrides="Width, Height" Margin="0,12,8,0"/>
-            <RadioButton x:Name="CompletedRadioButton" Content="Completed" d:LayoutOverrides="Width, Height" Margin="0,12,0,0"/>
+            <RadioButton x:Name="AllRadioButton" Content="All" d:LayoutOverrides="Width, Height" Margin="12,12,8,0" Checked="AllRadioButton_Checked"/>
+            <RadioButton x:Name="UncompletedRadioButton" Content="Current" d:LayoutOverrides="Width, Height" Margin="0,12,8,0" Checked="UncompletedRadioButton_Checked"/>
+            <RadioButton x:Name="CompletedRadioButton" Content="Completed" d:LayoutOverrides="Width, Height" Margin="0,12,0,0" Checked="CompletedRadioButton_Checked"/>
         </StackPanel>
 
     </Grid>
