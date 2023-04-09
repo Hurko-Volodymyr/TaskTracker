@@ -5,22 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTracker"
         mc:Ignorable="d"
-        Title="New Task" Height="350" Width="300">
+        Title="New Task" Height="350" Width="300" Foreground="Black">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF0E224A"/>
+            <GradientStop Color="#FF6585E8" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF4B1FAD"/>
+                <GradientStop Color="#FF2964D8" Offset="1"/>
+                <GradientStop Color="#FF0E224A" Offset="0.343"/>
+                <GradientStop Color="#FF163676" Offset="0.552"/>
+                <GradientStop Color="#FF204EAA" Offset="0.791"/>
+                <GradientStop Color="#FF255BC6" Offset="0.922"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Margin="12,0,12,12" Orientation="Horizontal">
-            <Button x:Name="SaveButton" Content="Add" Background="#FFB1E2A7" Margin="12,0,8,12" Padding="8,1,8,1" Click="SaveButton_Click" />            
+            <Button x:Name="SaveButton" Content="Add" Background="#FFB1E2A7" Margin="12,0,8,12" Padding="8,1,8,1" Click="SaveButton_Click" />
             <Button x:Name="CancelButton" Content="Delete" Background="#FFFDC4C4" Margin="0,0,0,12" Padding="8,1,8,1" Click="CancelButton_Click" />
         </StackPanel>
         <StackPanel Margin="12,12,12,12">
-            <TextBlock TextWrapping="Wrap" Text="Task Name" Margin="0,0,0,4"/>
-            <TextBox x:Name="NameTextBox" TextWrapping="Wrap" Width="200" HorizontalAlignment="Left" Margin="0,0,0,4"/>
-            <TextBlock TextWrapping="Wrap" Text="Task Description" Margin="0,0,0,4"/>
-            <TextBox x:Name="DescriptionTextBox" TextWrapping="Wrap" Width="200" HorizontalAlignment="Left" Margin="0,0,0,8" Foreground="#FFC7B9B9"/>
-            <CheckBox x:Name="IsCompletedCheckBox" Content="Done"/>
+            <TextBlock TextWrapping="Wrap" Text="Task Name" Margin="0,0,0,4" Foreground="Black" Background="#FF4DB1DC"/>
+            <TextBox x:Name="NameTextBox" TextWrapping="Wrap" Width="200" HorizontalAlignment="Left" Margin="0,0,0,4" Background="#FFBFEEF7"/>
+            <TextBlock TextWrapping="Wrap" Text="Task Description" Margin="0,0,0,4" Background="#FF4DB1DC"/>
+            <TextBox x:Name="DescriptionTextBox" TextWrapping="Wrap" Width="277" HorizontalAlignment="Left" Margin="0,0,0,8" Foreground="#FF0A0101" Background="#FFBFEEF7" Height="62"/>
+            <CheckBox x:Name="IsCompletedCheckBox" Content="Done" Foreground="#FF47AEBB"/>
         </StackPanel>
     </Grid>
 </Window>

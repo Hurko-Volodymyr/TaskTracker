@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,11 +24,7 @@ namespace TaskTracker
     public partial class MainWindow : Window
     {
 
-        ObservableCollection<Task> _tasks = new ObservableCollection<Task>() {
-        new Task() { Name = "Купити молоко", Description = "Привіт той, хто це читає" },
-        new Task() { Name = "Вивчити C#", Description = "Привіт той, хто це читає" },
-        new Task() { Name = "Написати резюме", Description = "Привіт той, хто це читає" }
-    };
+        ObservableCollection<Task> _tasks = new ObservableCollection<Task>();
 
         public MainWindow()
         {
@@ -68,9 +66,13 @@ namespace TaskTracker
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
             int index = ToDoListBox.SelectedIndex;
-            if (index != -1)
+            if (index != -1 && !_tasks[index].IsCompleted)
             {
                 _tasks[index].IsCompleted = true;
+            }
+            else if (index != -1 && _tasks[index].IsCompleted)
+            {
+                _tasks[index].IsCompleted = false;
             }
         }
 
@@ -104,5 +106,30 @@ namespace TaskTracker
             }
             ToDoListBox.ItemsSource = _completedTasks;
         }
+
+        string _fileName = "data.bin";        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(_fileName)) 
+            {
+                BinaryFormatter _binaryFormatter = new BinaryFormatter();
+                Stream file = File.OpenRead(_fileName);
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+                _tasks = _binaryFormatter.Deserialize(file) as ObservableCollection<Task>;
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+                file.Close();
+                ToDoListBox.ItemsSource = _tasks;
+            }
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            BinaryFormatter _binaryFormatter = new BinaryFormatter();
+            Stream file = File.OpenWrite(_fileName);
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+            _binaryFormatter.Serialize(file, _tasks);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+            file.Close();
+        }
     }
 }
+ 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTracker"
         mc:Ignorable="d"
-        Title="TaskTracker" Height="476" Width="481" BorderBrush="Black" MouseDoubleClick="Window_MouseDoubleClick">
+        Title="TaskTracker" Height="476" Width="481" BorderBrush="Black" MouseDoubleClick="Window_MouseDoubleClick" Closed="Window_Closed" Loaded="Window_Loaded">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>

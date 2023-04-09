@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskTracker
 {
+    [Serializable]
     public class Task
     {
         public string Name { get; set; }
